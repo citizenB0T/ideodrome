@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
     const body = document.body;
     let glitchTimeoutId = null;
     let nextGlitchTimerId = null;
     const glitchAudio = document.getElementById('glitch-audio');
     const glitchAudio2 = document.getElementById('glitch-audio2');
     const glitchAudio3 = document.getElementById('glitch-audio3');
+
 
 
     // Scramble Logic for grid cards
@@ -216,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // As long as the user interacts, we delay the end of the glitch by 1.2 seconds
             glitchTimeoutId = setTimeout(() => {
                 endGlitch();
-            }, 200);
+            }, 1200);
         }
     }
 
