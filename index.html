@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Idéodrome - Laboratoire Créatif</title>
+    <meta name="description"
+        content="Laboratoire créatif et collaboratif favorisant la co-construction de dispositifs numériques et narratifs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="entry-overlay">
+        <div class="entry-content">
+            <h2
+                style="color: var(--brand-secondary); font-size: 2.5rem; margin-bottom: 1rem; font-weight: 800; text-transform: uppercase;">
+                Bienvenue !</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.6;">Nous respectons votre
+                vie privée : aucun cookie ne sera déposé sur votre navigateur. Vous pouvez explorer notre site en toute
+                tranquillité.</p>
+            <button id="enter-btn" class="btn">Accepter et Entrer</button>
+        </div>
+    </div>
+
+    <div id="crt-overlay"></div>
+    <div id="noise-overlay"></div>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-left">
+                <div class="badge">digifactory × Namur Digital Institute</div>
+                <h1 class="glitch-title" data-text="L'Idéodrome">L'Idéodrome</h1>
+                <p class="subtitle">Laboratoire créatif et collaboratif</p>
+            </div>
+            <div class="hero-right">
+                <img src="illustration.png" alt="Creative Illustration" class="hero-img">
+            </div>
+        </header>
+
+        <main>
+            <section class="intro glass-card">
+                <h2>Annonce</h2>
+                <p>Ce mois de juin 2026, l’asbl digifactory, en partenariat avec le Namur Digital Institute, organisera
+                    un laboratoire créatif et collaboratif favorisant la co-construction de dispositifs numériques et
+                    narratifs, à la croisée de la recherche, de la création, de la médiation culturelle et scientifique,
+                    et de la pédagogie.</p>
+                <p>Pendant trois jours, des équipes pluridisciplinaires imagineront et construiront des prototypes de
+                    dispositifs narratifs et numériques destinés à <span id="dynamic-content">
+                        <span class="normal-text">qui favorise l’expérimentation rapide, l’intelligence collective et la
+                            rencontre entre disciplines. Chaque groupe sera invité à développer et tester un dispositif
+                            ludopédagogique innovant, visant à sensibiliser sur un sujet lié à la désinformation, le
+                            tout durant trois jours inoubliables, riches en expériences et en rencontres visant à vivre
+                            et faire vivre une expérience interactive au cœur même du processus de
+                            conception.<br><br>Nous avons hâte de partager ce moment avec vous !<br><br>L'équipe
+                            organisatrice.</span>
+                        <span class="glitch-text" aria-hidden="true">lutter contre le fléau rampant et corrupteur du
+                            Kernel. Nulle autre lutte ne pourrait être plus importante : le fléau cyberscrutateur et
+                            polymorphe grandit de jour en jour, avide d'accaparer les secrets du Codex Arcanorum. Il
+                            n’est pas trop tard, nous pouvons encore ériger une barrière.<br><br>Veritatem servamus
+                            occultando.<br><br>Dans les méandres sombres et précognitifs d’où s’écoule le courant secret
+                            de la noosphère, où les idées voyagent avant de prendre forme dans la conscience humaine,
+                            nous pouvons encore nous élever. Mais nous ne pouvons rien seuls et isolés. Nous avons
+                            besoin de vous. Votre concours sera notre rédemption.<br><br>Suivez le Sillon
+                            Onironoétique.<br>Traversez le Prisme Liminal.<br>Accédez à l’Idéodrome… Le
+                            Comité<br><br><span
+                                class="zalgo">L̵̘̤̠̜̥̞̗̞̦̥̝̑͗́͂́́'̷̷̣̖̞̝̞̟̤̣̿̈́́̓́͌͊é̵̶̷̜̹̟̻̗̞̙̖̗̑̓̊͒́͋q̸̗̠̥̖̜̙̥̜̘͒͂̍́́́̾̾ü̠̹̜̹̠̟̖̜̞̠̞̠͒́͂̿́ĭ̸̴̵̤̗̠̜̘̘̟̅̊͂́͌͌͆p̴̶̞̖̤̞̟̙̙̗̟͑́̈͊͂͆́e̸̸̘̠̙̜̹̜̓͌̄͑̈͋͊́͊͋
+                                o̟̝̘̖̥̗̣̗̠̞̘̿̐͒̄͋́͌r̶̸̘̟̹̜̣̣̠̦̟̣̈̈͑̆͂́g̵̙̥̻̠̜̦̤̜̞̜̖͂͗͑́͂͆a̶̵̷̷̴̤̠̠̝̦̜̙̖̿̅̐̄̓n̷̟̘̥̖̜̞̹̜̗̠̜̗̅̄̅́̿i̶̻̤̠̜̘̤̖̞̗̥̟̜͊̅̿͌͌s̴̹̟̙̠̟̠̟͊̑̑̊͒͊͆͊́̾ḁ̠̻̦̤̝̟̖̜̈͊̐̍̈͊͆͊͌t̷̶̶̷̻̟̠̦̖̞̦̤́̅́͒́͆r̸̷̗̖̻̤̟̙̝̝̅͌́̎͑͋͋͆i̵̠̹̥̥̹̖̟̙̟̜͒́͋̈́͋́c̸̷̜̝̥̖̜̠̙̠̠̆̈͋͒̓́͆e̸̴̦̘̘̦̦̻̜̟̓͑̑̅̿́̾͋</span><br><br>ɹnǝʇɐuuopɹO</span>
+                    </span></p>
+            </section>
+
+            <div class="grid">
+                <section class="glass-card">
+                    <div class="icon">💡</div>
+                    <h3>Quoi ?</h3>
+                    <p>L’idéodrome est une variation des désormais bien connus hackathon, mais conçu afin de s’insérer
+                        dans votre travail quotidien (en vous permettant d’aller et venir aux seins des équipes en
+                        présence). Durant 3 jours, un espace de créativité sera mis à votre disposition et des équipes à
+                        géométrie variable se lanceront un défi pas banal !</p>
+                </section>
+
+                <section class="glass-card">
+                    <div class="icon">🎯</div>
+                    <h3>Le défi ?</h3>
+                    <p>Produire un mini-jeu, une énigme, un contenu audiovisuel, une expérience numérique, etc. destiné
+                        à sensibiliser sur un sujet lié à la désinformation en moins de trois jours.</p>
+                </section>
+
+                <section class="glass-card full-width">
+                    <div class="icon">🚀</div>
+                    <h3>Pourquoi ?</h3>
+                    <ul>
+                        <li>L’occasion de rencontrer des collègues chercheurs dans un contexte dépaysant et inspirant.
+                        </li>
+                        <li>L’occasion de mettre son expertise scientifique à profit dans le cadre d’un projet créatif
+                            et sortant des sentiers battus.</li>
+                        <li>L’occasion de développer son côté créatif en vivant une expérience à la croisée entre
+                            réalité et fiction.</li>
+                        <li>Accéder à un fablab !</li>
+                        <li>De la nourriture gratuite et un vent d’air frais par rapport au quotidien.</li>
+                    </ul>
+                </section>
+
+                <section class="glass-card highlight-card">
+                    <div class="icon">🗓️</div>
+                    <h3>Quand ?</h3>
+                    <p class="highlight-text">Les 1, 2 et 3 juin 2026<br><span>(de 9h à 16h)</span></p>
+                </section>
+
+                <section class="glass-card">
+                    <div class="icon">📍</div>
+                    <h3>Où ?</h3>
+                    <p><strong>Le Trakk</strong><br>16 Avenue Reine Astrid<br>5000 Namur - Belgique</p>
+                </section>
+
+                <section class="glass-card full-width target-audience">
+                    <div class="icon">👥</div>
+                    <h3>A qui s’adresse cet évènement ?</h3>
+                    <p>Chercheurs, étudiants, enseignants, artistes, développeurs, designers, médiateurs culturels,
+                        citoyens – l’évènement se veut un <strong>laboratoire vivant, ouvert et inclusif</strong>, où
+                        l’on explore ensemble de nouvelles formes de médiation numérique et narrative, à la croisée de
+                        la recherche, de la création, de la médiation scientifique et de l’éducation aux médias.</p>
+                </section>
+
+                <section class="glass-card full-width contact">
+                    <h3>En savoir plus ?</h3>
+                    <p>Contactez-nous via <br><a href="mailto:digifactory.asbl@gmail.com"
+                            class="btn">digifactory.asbl@gmail.com</a></p>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2026 digifactory & Namur Digital Institute.</p>
+        </footer>
+    </div>
+
+    <audio id="glitch-audio" src="resources/glitch.mp3" preload="auto"></audio>
+    <audio id="glitch-audio2" src="resources/sophie.mp3" preload="auto"></audio>
+    <audio id="glitch-audio3" src="resources/chant.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
