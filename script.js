@@ -62,12 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const main = document.querySelector('main');
         const originalIntro = document.querySelector('main > .intro:not(.creepy-clone)');
         const originalGrid = document.querySelector('main > .grid:not(.creepy-clone)');
-        
-        if(!originalIntro || !originalGrid) return;
-        
+
+        if (!originalIntro || !originalGrid) return;
+
         const cloneIntro = originalIntro.cloneNode(true);
         const cloneGrid = originalGrid.cloneNode(true);
-        
+
         cloneIntro.classList.add('creepy-clone');
         cloneGrid.classList.add('creepy-clone');
 
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const clonedCards = cloneGrid.querySelectorAll('.glass-card');
         const originalCards = originalGrid.querySelectorAll('.glass-card');
-        
+
         clonedCards.forEach((card, index) => {
             card.style.setProperty('--tilt', `${Math.random() * 20 - 10}deg`);
             card.style.setProperty('--tx', `${Math.random() * 30 - 15}px`);
@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (originalCards[index]) {
                 const origNodes = getTextNodes(originalCards[index]);
                 const cloneNodes = getTextNodes(card);
-                
-                for(let i = 0; i < Math.min(origNodes.length, cloneNodes.length); i++) {
+
+                for (let i = 0; i < Math.min(origNodes.length, cloneNodes.length); i++) {
                     const originalText = originalTexts.get(origNodes[i]);
                     if (originalText !== undefined) {
                         originalTexts.set(cloneNodes[i], originalText);
@@ -142,9 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
             glitchAudio.currentTime = 0;
             // Catch error in case browser blocks autoplay before user interaction
             glitchAudio.play().catch(e => console.log("Audio prevented:", e));
-            
+
             // 20% chance to play additional spooky audio tracks
-            if (Math.random() < 0.2) {
+            if (Math.random() < 0.35) {
                 if (glitchAudio2) {
                     glitchAudio2.currentTime = 0;
                     glitchAudio2.play().catch(e => console.log("Audio prevented:", e));
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // As long as the user interacts, we delay the end of the glitch by 1.2 seconds
             glitchTimeoutId = setTimeout(() => {
                 endGlitch();
-            }, 1200);
+            }, 200);
         }
     }
 
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }).catch(e => console.log(e));
             }
         }
-        
+
         unlockAudio(glitchAudio);
         unlockAudio(glitchAudio2);
         unlockAudio(glitchAudio3);
