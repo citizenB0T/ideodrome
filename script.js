@@ -56,6 +56,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let scrambleInterval = null;
+    let clonedTextNodes = [];
+
+    function appendClones() {
+        const main = document.querySelector('main');
+        const originalIntro = document.querySelector('main > .intro:not(.creepy-clone)');
+        const originalGrid = document.querySelector('main > .grid:not(.creepy-clone)');
+        
+        if(!originalIntro || !originalGrid) return;
+        
+        const cloneIntro = originalIntro.cloneNode(true);
+        const cloneGrid = originalGrid.cloneNode(true);
+        
+        cloneIntro.classList.add('creepy-clone');
+        cloneGrid.classList.add('creepy-clone');
+
+        main.appendChild(cloneIntro);
+        main.appendChild(cloneGrid);
+
+        const clonedCards = cloneGrid.querySelectorAll('.glass-card');
+        const originalCards = originalGrid.querySelectorAll('.glass-card');
+        
+        clonedCards.forEach((card, index) => {
+            card.style.setProperty('--tilt', `${Math.random() * 20 - 10}deg`);
+            card.style.setProperty('--tx', `${Math.random() * 30 - 15}px`);
+            card.style.setProperty('--ty', `${Math.random() * 30 - 15}px`);
+
+            if (originalCards[index]) {
+                const origNodes = getTextNodes(originalCards[index]);
+                const cloneNodes = getTextNodes(card);
+                
+                for(let i = 0; i < Math.min(origNodes.length, cloneNodes.length); i++) {
+                    const originalText = originalTexts.get(origNodes[i]);
+                    if (originalText !== undefined) {
+                        originalTexts.set(cloneNodes[i], originalText);
+                        clonedTextNodes.push(cloneNodes[i]);
+                    }
+                }
+            }
+        });
+    }
+
+    function removeClones() {
+        document.querySelectorAll('.creepy-clone').forEach(el => el.remove());
+        clonedTextNodes.forEach(node => originalTexts.delete(node));
+        clonedTextNodes = [];
+    }
 
     function startCreepyGrid() {
         gridCards.forEach(card => {
@@ -121,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function endGlitch() {
         body.classList.remove('creepy-mode');
         stopCreepyGrid();
+        removeClones();
         if (glitchAudio) {
             glitchAudio.pause();
             glitchAudio.currentTime = 0;
@@ -197,6 +244,12 @@ document.addEventListener("DOMContentLoaded", () => {
         isScrolling = true;
         if (scrollDebounceTimer) clearTimeout(scrollDebounceTimer);
         scrollDebounceTimer = setTimeout(handleScrollEnd, 350);
+
+        if (body.classList.contains('creepy-mode')) {
+            if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 500) {
+                appendClones();
+            }
+        }
 
         // Check if user scrolled to half of the page
         const scrolledHalf = window.scrollY > (document.body.scrollHeight / 2 - window.innerHeight / 2);
