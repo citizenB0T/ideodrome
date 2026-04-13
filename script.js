@@ -279,6 +279,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterBtn = document.getElementById('enter-btn');
 
     enterBtn.addEventListener('click', () => {
+
+        document.cookie = "advice=DON'T TRUST ANYBODY";
         entryOverlay.classList.add('hidden');
 
         // Unlock audio context via direct hit
